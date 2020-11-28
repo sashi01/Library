@@ -6,13 +6,13 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 
-app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 
 //-- Set the beginning and ending of every HTML page
 app.set('layout', 'layouts/layout')
 
-//-- Use express layouts 
+//-- EJS
+app.set('view engine', 'ejs')
 app.use(expressLayouts)
 
 //-- Set public folder
@@ -33,6 +33,9 @@ app.use('/', indexRouter)
 
 const authorRouter = require('./routes/authors')
 app.use('/authors', authorRouter)
+
+const booksRouter = require('./routes/books')
+app.use('/books', booksRouter)
 
 //-- Initialise app
 app.listen(process.env.PORT || 3000)
