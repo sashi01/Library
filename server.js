@@ -8,6 +8,10 @@ const bodyParser = require('body-parser')
 
 app.set('views', __dirname + '/views')
 
+//-- Method Overrride for 'Delete' requests 
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
 //-- Set the beginning and ending of every HTML page
 app.set('layout', 'layouts/layout')
 
